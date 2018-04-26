@@ -1,0 +1,25 @@
+{
+  "name": "NYT-Article-Search",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:zachha/NYT-Article-Search.git",
+  "author": "zachha <zachha@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\"npm run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo\"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16",
+    "path": "^0.12.7"
+  }
+}
