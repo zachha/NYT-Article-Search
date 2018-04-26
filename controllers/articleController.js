@@ -7,13 +7,21 @@ module.exports = {
           .catch(err => res.status(422).json(err));
     },
 
+    findAll: (req, res) => {
+        db.Article
+        .find(req.Query)
+        .sort({ date: -1 })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+
     findById: (req, res) => {
         db.Article
         .findById({ _id: req.params.id })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
-    
+
     deleteArticle: (req, res) => {
         db.Article
         .findById({ _id: req.params.id })
