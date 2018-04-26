@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // initializes mongoose for deployment or local
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreview");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 // Add API routes
 app.use("/api/article", articleRoutes);
 
-// Send every request to the React app
+// Send every request to the React apps
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
