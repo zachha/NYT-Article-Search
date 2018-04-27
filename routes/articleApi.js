@@ -2,11 +2,13 @@ const router = require('express').Router();
 const articleController = require('../controllers/articleController');
 
 
-router.route("/api/articles")
-  .get(articleController.findAll)
-  .post(articleController.create)
-  .delete(articleController.deleteArticle)
+router.route("/")
+    .get(articleController.findAll)
+    .post(articleController.create)
     
-router.route("/api/:id")
-    .get(articleController.findById)
+router.route("/:id")
+  .get(articleController.findById)
+  .delete(articleController.deleteArticle)
+
+ module.exports = router;
     
