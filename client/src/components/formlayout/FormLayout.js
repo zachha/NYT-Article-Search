@@ -1,8 +1,9 @@
-import "Form.css";
+import "./FormLayout.css";
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import API from '../../utils/api/API';
 import {
     Container,
     Card,
@@ -17,7 +18,7 @@ import {
 } from 'reactstrap';
 import Results from "../results/Results";
 
-export default class Form extends Component {
+export default class FormLayout extends Component {
 
     state = {
     topic: "",
@@ -38,7 +39,7 @@ export default class Form extends Component {
       this.setState({
         isValid: true
       });
-      axios.post("/api/book", this.state)
+      API.nytSearch(this.state)
         .then(res => this.props.history.push("/")) // redirect to home page
         .catch(err => console.log(err));
     }
@@ -51,7 +52,8 @@ export default class Form extends Component {
 
 
   render() {
-    <Container>
+      return (
+    <Container id="formLayout">
       <Card>
         <CardHeader>
           <h4>Search the NYT for Articles:</h4>
@@ -59,7 +61,7 @@ export default class Form extends Component {
         <CardBody>
           <Container>
             <h5>
-              <Link to="/">
+              <Link to="/saved">
                 <FontAwesomeIcon icon="bookmark" /> See Saved Articles
               </Link>
             </h5>
@@ -85,9 +87,10 @@ export default class Form extends Component {
       </Card>
       <br />
       {!this.state.isValid && <Alert color="danger">
-          Please fill the required form fields.
+          Please input a topic to search for.
         </Alert>}
-    </Container>;
+    </Container>
+      )
   }
 }
 

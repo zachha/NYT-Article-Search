@@ -30,7 +30,7 @@ export default class TopNav extends Component {
   }
   render() {
     return (
-        <Navbar color="dark" dark expand="md">
+        <Navbar color="dark" dark expand="md" id="navbar">
           <NavbarBrand href="/">New York Times Article Scrubber</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
