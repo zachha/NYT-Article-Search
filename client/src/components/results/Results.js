@@ -1,8 +1,11 @@
-import 'results.css';
+import './Results.css';
 import React, { Component } from 'react';
 
-class Results extends Component {
-
+export default class Results extends Component {
+    render() {
+        return(
+            <div>
+            </div>
+        )
+    }
 }
-
-module.exports = Results;

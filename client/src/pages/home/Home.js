@@ -1,15 +1,17 @@
-import "results.css";
+import "./Home.css";
 import React, { Component } from "react";
-import Results from '../results/Results';
+import Results from '../../components/results/Results';
 
-class Home extends Component {
+
+
+export default class Home extends Component {
 
     render() {
         return (
             <div>
+                <h1> Hi Hello </h1>
             </div>
-        );
+        )
     }
 }
 
-module.exports = Home;

@@ -1,6 +1,12 @@
-import "results.css";
+import "./Saved.css";
 import React, { Component } from "react";
 
-class Saved extends Component {}
+export default class Saved extends Component {
+    render() {
+        return(
+            <div>
+            </div>
+        )
+    }
+}
 
-module.exports = Saved;
