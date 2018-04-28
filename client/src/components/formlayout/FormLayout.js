@@ -86,7 +86,7 @@ export default class FormLayout extends Component {
                   </FormGroup>
                   <FormGroup>
                     <Label for="endYear"> End Year:</Label>
-                    <Input type="text" name="author" value={this.state.endYear} onChange={this.onChange} placeholder="endYear" />
+                    <Input type="text" name="endYear" value={this.state.endYear} onChange={this.onChange} placeholder="endYear" />
                   </FormGroup>
                   <Button onClick={this.onSubmit} color="primary" id="searchBtn">
                     Search Articles
