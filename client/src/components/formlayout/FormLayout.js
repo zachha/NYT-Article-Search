@@ -89,7 +89,13 @@ export default class FormLayout extends Component {
       {!this.state.isValid && <Alert color="danger">
           Please input a topic to search for.
         </Alert>}
+
+      <Container id="pulledArticles">
+        
+      </Container>
     </Container>
+
+    
       )
   }
 }
