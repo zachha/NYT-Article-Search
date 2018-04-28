@@ -54,6 +54,18 @@ export default class FormLayout extends Component {
     }
   }
 
+  saveArticle = (title, author, summary, date, url) => {
+    API.saveArticle({
+      title: title,
+      author: author,
+      date: date,
+      summary: summary,
+      url: url
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+  }
+
 
   render() {
       return <Container id="formLayout">
@@ -103,7 +115,7 @@ export default class FormLayout extends Component {
               url={article.web_url} 
               button="Save Article" 
               key={article.headline.main}
-              function={this.saveArticle}
+              function={() => this.saveArticle(article.headline.main, article.byline.original, article.pub_date, article.snippet, article.web_url)}
               />;
             })}
           </Container>

@@ -38,7 +38,14 @@ export default class Saved extends Component {
         return (
           <Container id="pulledArticles">
             {this.state.articles.map(article => {
-              return <Results title={article.headline.main} summary={article.snippet} author={article.byline.original} date={article.pub_date} url={article.web_url} button="Delete Article" function={this.deleteArticle(article.headline.main, article.snippet, article.author, article.pub_date, article.web_url)} />;
+              return <Results 
+              title={article.headline.main} 
+              summary={article.snippet} 
+              author={article.byline.original} 
+              date={article.pub_date} 
+              url={article.web_url} 
+              button="Delete Article" 
+              function={this.deleteArticle(article._id)} />;
             })}
           </Container>
         );
