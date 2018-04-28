@@ -54,8 +54,8 @@ export default class FormLayout extends Component {
     }
   }
 
-  saveArticle = (title, author, summary, date, url) => {
-    API.saveArticle({
+  saveArticle = (id, title, author, summary, date, url) => {
+    API.create({
       title: title,
       author: author,
       date: date,
@@ -107,15 +107,22 @@ export default class FormLayout extends Component {
 
           <Container id="pulledArticles">
             {this.state.articles.map(article => {
+              if(article.byline) {
+                 var tempAuthor = article.byline.original;
+              } else {
+                var tempAuthor = "Unknown Author";
+              }
+                
+
               return <Results 
               title={article.headline.main} 
               summary={article.snippet} 
-              author={article.byline.original} 
+              author={tempAuthor}
               date={article.pub_date} 
               url={article.web_url} 
               button="Save Article" 
               key={article.headline.main}
-              function={() => this.saveArticle(article.headline.main, article.byline.original, article.pub_date, article.snippet, article.web_url)}
+              saveFunction={this.saveArticle}
               />;
             })}
           </Container>

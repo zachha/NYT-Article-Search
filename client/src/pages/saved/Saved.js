@@ -45,7 +45,7 @@ export default class Saved extends Component {
               date={article.pub_date} 
               url={article.web_url} 
               button="Delete Article" 
-              function={this.deleteArticle(article._id)} />;
+              saveFunction={this.deleteArticle} />;
             })}
           </Container>
         );

@@ -22,7 +22,10 @@ export default class Results extends Component {
                             <Button 
                             color="primary" 
                             id="articleBtn"
-                            onClick={this.props.function}>{this.props.button}
+                            onClick={() => {
+                                  this.props.saveFunction(this.props._id, this.props.title, this.props.author, this.props.summary, this.props.date, this.props.url);
+                                }}>
+                            {this.props.button}
                             </Button>
                         </CardTitle>
                         <CardText>{this.props.date}</CardText>
