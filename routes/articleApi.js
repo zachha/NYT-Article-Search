@@ -7,8 +7,8 @@ router.route("/")
     .post(articleController.create)
     
 router.route("/:id")
-  .get(articleController.findById)
-  .delete(articleController.deleteArticle)
+    .get(articleController.findById)
+    .delete(articleController.deleteArticle)
 
  module.exports = router;
     
