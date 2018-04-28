@@ -23,21 +23,8 @@ export default {
 
     // searches NYT API based on user inputand returns up to 9 articles
     nytSearch: function(req) {
-        axios.get(
-          {
-            url:
-              "https://api.nytimes.com/svc/search/v2/articlesearch.json",
-            qs: {
-              "api-key": "b5cd1e91a19e4825a725b57f08281577",
-              q: req.title,
-              begin_date: req.startYear + "0101",
-              end_date: req.endYear + "1230"
-            }
-          },
-          function(err, response, body) {
-            body = JSON.parse(body);
-            console.log(body);
-          }
-        );
+       
+       return axios.get
+       (`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${req.topic}&api-key=b5cd1e91a19e4825a725b57f08281577&begin_date=${req.startYear}0101&end_date=${req.endYear}1230`)
     } 
 }
