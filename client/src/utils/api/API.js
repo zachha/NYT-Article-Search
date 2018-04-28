@@ -30,8 +30,8 @@ export default {
             qs: {
               "api-key": "b5cd1e91a19e4825a725b57f08281577",
               q: req.title,
-              begin_date: req.start + "0101",
-              end_date: req.end + "0101"
+              begin_date: req.startYear + "0101",
+              end_date: req.endYear + "1230"
             }
           },
           function(err, response, body) {
