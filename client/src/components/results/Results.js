@@ -19,7 +19,10 @@ export default class Results extends Component {
                     </CardHeader>
                     <CardBody>
                         <CardTitle>{this.props.author}
-                            <Button color="primary"> Save Article
+                            <Button 
+                            color="primary" 
+                            id="articleBtn"
+                            onClick={this.props.function}>{this.props.button}
                             </Button>
                         </CardTitle>
                         <CardText>{this.props.date}</CardText>
