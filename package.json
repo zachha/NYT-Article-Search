@@ -1,5 +1,5 @@
 {
-  "name": "NYT-Article-Search",
+  "name": "nyt-article-search",
   "version": "1.0.0",
   "main": "server.js",
   "repository": "git@github.com:zachha/NYT-Article-Search.git",
