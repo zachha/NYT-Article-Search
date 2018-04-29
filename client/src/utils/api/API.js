@@ -7,8 +7,14 @@ export default {
     },
 
     // 'creates' a new article by adding it to the saved 'page'
-    create: function() {
-        return axios.get('/api/articles');
+    create: function(req) {
+        return axios.post('/api/articles', {
+            title: req.title,
+            author: req.author,
+            date: req.date,
+            summary: req.summary,
+            url: req.url
+        });
     },
 
     // deletes specified article
@@ -24,7 +30,6 @@ export default {
     // searches NYT API based on user inputand returns up to 9 articles
     nytSearch: function(req) {
        
-       return axios.get
-       (`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${req.topic}&api-key=b5cd1e91a19e4825a725b57f08281577&begin_date=${req.startYear}0101&end_date=${req.endYear}1230`)
+       return axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${req.topic}&api-key=b5cd1e91a19e4825a725b57f08281577&begin_date=${req.startYear}0101&end_date=${req.endYear}1230`)
     } 
 }

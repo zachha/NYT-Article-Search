@@ -3,7 +3,11 @@ const db = require('../models');
 module.exports = {
     create: (req, res) => {
         db.Article.create(req)
-          .then(dbModel => res.json(dbModel))
+          .then(dbModel => {
+              console.log("Article saved!");
+              res.json(dbModel);
+          })
+          
           .catch(err => res.status(422).json(err));
     },
 
@@ -26,7 +30,10 @@ module.exports = {
         db.Article
         .findById({ _id: req.params.id })
         .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => {
+            console.log("Article Deleted!");
+            res.json(dbModel);
+        })
         .catch(err => res.status(422).json(err));
     }
 }
