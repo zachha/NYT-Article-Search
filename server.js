@@ -10,22 +10,31 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// initializes mongoose for deployment or local
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 // Add API routes
-app.use("/api/article", articleRoutes);
+app.use("/api/articles", articleRoutes);
 
 // Send every request to the React apps
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+// initializes mongoose for deployment or local
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
