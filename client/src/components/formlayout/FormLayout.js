@@ -2,7 +2,6 @@ import "./FormLayout.css";
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 import API from '../../utils/api/API';
 import {
     Container,
@@ -110,7 +109,7 @@ export default class FormLayout extends Component {
               if(article.byline) {
                  var tempAuthor = article.byline.original;
               } else {
-                var tempAuthor = "Unknown Author";
+                tempAuthor = "Unknown Author";
               }
                 
 
