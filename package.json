@@ -1,6 +1,9 @@
 {
   "name": "nyt-article-search",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.4"
+  },
   "main": "server.js",
   "repository": "git@github.com:zachha/NYT-Article-Search.git",
   "author": "zachha <zachha@gmail.com>",
