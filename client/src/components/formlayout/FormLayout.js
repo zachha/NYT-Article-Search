@@ -54,6 +54,7 @@ export default class FormLayout extends Component {
   }
 
   saveArticle = (id, title, author, summary, date, url) => {
+    console.log("id: " + id + " title: " + title );
     API.create({
       title: title,
       author: author,
@@ -119,6 +120,7 @@ export default class FormLayout extends Component {
               author={tempAuthor}
               date={article.pub_date} 
               url={article.web_url} 
+              id={article._id}
               button="Save Article" 
               key={article.headline.main}
               saveFunction={this.saveArticle}

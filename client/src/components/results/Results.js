@@ -23,7 +23,7 @@ export default class Results extends Component {
                             color="primary" 
                             id="articleBtn"
                             onClick={() => {
-                                  this.props.saveFunction(this.props._id, this.props.title, this.props.author, this.props.summary, this.props.date, this.props.url);
+                                  this.props.saveFunction(this.props.id, this.props.title, this.props.author, this.props.summary, this.props.date, this.props.url);
                                 }}>
                             {this.props.button}
                             </Button>

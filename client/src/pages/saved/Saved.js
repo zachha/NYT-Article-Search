@@ -13,20 +13,22 @@ export default class Saved extends Component {
   componentDidMount() {
     API.findAll()
     .then(res => {
+      console.log(res);
       this.setState({
-        articles: res.data.response.docs
+        articles: res.data
       });
     })
     .catch(err => console.log(err));
   }
 
   deleteArticle = (id) => {
+    console.log(id);
     API.deleteArticle(id)
     .then(res => {
       API.findAll()
       .then(res => {
         this.setState({
-          articles: res.data.response.docs
+          articles: res.data
         });
       })
       .catch(err => console.log(err));
@@ -38,12 +40,14 @@ export default class Saved extends Component {
         return (
           <Container id="pulledArticles">
             {this.state.articles.map(article => {
+              console.log('article: ' + JSON.stringify(article));
               return <Results 
-              title={article.headline.main} 
-              summary={article.snippet} 
-              author={article.byline.original} 
-              date={article.pub_date} 
-              url={article.web_url} 
+              title={article.title} 
+              summary={article.summary} 
+              author={article.author} 
+              date={article.date} 
+              url={article.url} 
+              id={article._id}
               button="Delete Article" 
               saveFunction={this.deleteArticle} />;
             })}
