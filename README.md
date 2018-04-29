@@ -2,7 +2,10 @@
 
 This is a React-based application that uses the New York Times API to allow users to search for articles based on a title and a range of years.  The application is powered by MongoDB and allows the user to save their favorite articles.  The user is prompted to enter a search topic, a start year, and an end year, which the NYT API uses to return 9 articles and allows the user to save articles to view later.
 
+
 ![NYT Logo](client/public/nyt.png "NYT Logo")
+
+
 
 The website is can be found here: [NYT Article Search](https://glacial-hollows-18585.herokuapp.com/ "deployed application")
 
