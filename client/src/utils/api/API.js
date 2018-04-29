@@ -7,14 +7,9 @@ export default {
     },
 
     // 'creates' a new article by adding it to the saved 'page'
-    create: function(req) {
-        return axios.post('/api/articles', {
-            title: req.title,
-            author: req.author,
-            date: req.date,
-            summary: req.summary,
-            url: req.url
-        });
+    create: function(articleData) {
+        console.log("req: " + JSON.stringify(articleData));
+        return axios.post('/api/articles', articleData);
     },
 
     // deletes specified article

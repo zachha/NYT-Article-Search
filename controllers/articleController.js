@@ -2,7 +2,7 @@ const db = require('../models');
 
 module.exports = {
     create: (req, res) => {
-        db.Article.create(req)
+        db.Article.create(req.body)
           .then(dbModel => {
               console.log("Article saved!");
               res.json(dbModel);
